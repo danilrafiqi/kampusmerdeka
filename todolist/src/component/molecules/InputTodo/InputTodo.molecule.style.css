@@ -1,0 +1,11 @@
+.input-todo {
+  width: 400px;
+  margin: 20px 0;
+  display: flex;
+}
+
+.input-todo .input-todo__field {
+  width: 100%;
+  flex: 1;
+  padding: 10px;
+}
