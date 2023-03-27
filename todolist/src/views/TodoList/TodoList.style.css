@@ -11,3 +11,8 @@
   width: 400px;
   flex-direction: row;
 }
+
+.todolist .todolist__back {
+  display: flex;
+  width: 400px;
+}

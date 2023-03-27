@@ -1,7 +1,7 @@
 import React from "react";
 import "./InputTodo.molecule.style.css";
 
-const InputTodo = ({ value, onChange, onSubmit }) => {
+const InputTodo = ({ value, onChange, onSubmit, isEdit, onUpdate }) => {
   return (
     <div className="input-todo">
       <input
@@ -11,8 +11,13 @@ const InputTodo = ({ value, onChange, onSubmit }) => {
         onChange={onChange}
         placeholder="Input todo . . ."
       />
-      <button className="input-todo__button" onClick={onSubmit}>
-        Submit
+
+      {/* condition ? true : false */}
+      <button
+        className="input-todo__button"
+        onClick={isEdit ? onUpdate : onSubmit}
+      >
+        {isEdit ? "Update" : "Submit"}
       </button>
     </div>
   );

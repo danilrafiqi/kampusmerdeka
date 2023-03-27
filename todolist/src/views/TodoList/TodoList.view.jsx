@@ -1,17 +1,32 @@
 import React, { useState } from "react";
-import { InputTodo, ListHeader, ListItem } from "../../component/molecules/";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { InputTodo } from "../../component/molecules/";
+import { List } from "../../component/organism";
+import { useTodoListSelector } from "../../config/redux/todo/todoSelector";
+import { todoAction } from "../../config/redux/todo/todoSlice";
 import "./TodoList.style.css";
 
 const TodoList = () => {
   const [text, setText] = useState("");
-  const [todoList, setTodoList] = useState(["Belajar"]);
+  const [todoLists, setTodoList] = useState(["Belajar"]);
+  const [completedTodoList, setCompletedTodoList] = useState([]);
+  const [idxSelected, setIdxSelected] = useState();
+
+  const dispatch = useDispatch();
+
+  const todoList = useTodoListSelector();
+
+  // const todoListNew = useMemo(() => {
+  //   return todoList.map((todo) => `${todo}-kampusmerdeka`);
+  // }, [todoList]);
 
   const handleChangeTodo = (event) => {
     setText(event.target.value);
   };
 
   const handleSubmit = () => {
-    setTodoList([...todoList, text]);
+    dispatch(todoAction.add([...todoList, text]));
     setText("");
   };
 
@@ -21,34 +36,61 @@ const TodoList = () => {
     setTodoList(updatedTodoList);
   };
 
-  // const deleteTodoV2 = (search) => {
-  //   const filteredList = todoList.filter((todo) => todo !== search);
-  //   setTodoList(filteredList);
-  // };
+  const handleCompleteTodo = (idx) => {
+    setCompletedTodoList([...completedTodoList, todoList[idx]]);
+    deleteTodoV1(idx);
+  };
+
+  const handleEdit = (value, idx) => {
+    setText(value);
+    setIdxSelected(idx);
+  };
+
+  const handleUpdate = () => {
+    const updatedTodoList = [...todoList];
+    updatedTodoList.splice(idxSelected, 1, [text]);
+    setTodoList(updatedTodoList);
+    setText("");
+    setIdxSelected();
+  };
+
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1);
+  };
 
   return (
     <div className="todolist">
+      <div className="todolist__back">
+        <button onClick={handleBack}>back</button>
+      </div>
       <InputTodo
         onChange={handleChangeTodo}
         onSubmit={handleSubmit}
+        onUpdate={handleUpdate}
         value={text}
+        isEdit={idxSelected !== undefined}
       />
 
-      <div className="todolist__content">
-        <ListHeader no="No" title="Title" option="Option" />
-        {todoList.map((todo, idx) => {
-          return (
-            <ListItem
-              key={idx}
-              no={idx + 1}
-              title={todo}
-              onDelete={() => {
-                deleteTodoV1(idx);
-              }}
-            />
-          );
-        })}
-      </div>
+      <List
+        data={todoList}
+        no="No"
+        title="Title"
+        option="Option"
+        onComplete={(idx) => {
+          handleCompleteTodo(idx);
+        }}
+        onDelete={(idx) => {
+          deleteTodoV1(idx);
+        }}
+        onEdit={(item, idx) => {
+          handleEdit(item, idx);
+        }}
+      />
+
+      <div>==========================================</div>
+      <List data={completedTodoList} no="No" title="Title" option="Option" />
     </div>
   );
 };
