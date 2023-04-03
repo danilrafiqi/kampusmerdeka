@@ -1,0 +1,56 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "laptop",
+      "price": 100000
+    },
+    {
+      "id": "2",
+      "name": "pc",
+      "price": 90000
+    },
+    {
+      "name": "test name",
+      "price": 12323,
+      "id": "14da4d40-f9d1-4afa-a1aa-8069aba2b748"
+    },
+    {
+      "name": "dsdsd",
+      "price": 232323,
+      "id": "e3d05d89-9fe8-415e-9443-2056dffc7b02"
+    },
+    {
+      "name": "sdsdsd",
+      "price": 343434,
+      "id": "fd705c96-d2f8-4cd0-8f84-0763d12b5839"
+    },
+    {
+      "name": "halo dunia",
+      "price": 2323,
+      "id": "e5b5e0f8-50fb-4ca9-acb2-0545b90a5e5c"
+    },
+    {
+      "name": "uyuyu",
+      "price": 5656,
+      "id": "581b53fc-810d-4ac3-9b88-088003fb2607"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

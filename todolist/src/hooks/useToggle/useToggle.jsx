@@ -7,7 +7,7 @@ const useToggle = (show = false) => {
     setIsShow((prev) => !prev);
   };
 
-  return [isShow, toggleShow];
+  return { isShow, toggleShow };
 };
 
 export default useToggle;

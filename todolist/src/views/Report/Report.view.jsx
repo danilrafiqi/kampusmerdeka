@@ -1,17 +1,23 @@
-import React, { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
-import "./Report.style.css";
-const Report = () => {
-  const navigate = useNavigate();
+import React, { useEffect } from "react";
+import Button from "../../component/atoms/Button/Button.atom";
 
-  const handleNavigate = useCallback(() => {
-    navigate("/todo");
+const Report = () => {
+  // const listenLocalStorage = useCallback(()=>{
+
+  // },[])
+
+  useEffect(() => {
+    window.addEventListener("storage", () => {});
   }, []);
 
+  const updateStorage = () => {
+    localStorage.setItem("test", localStorage.getItem("test") + "1");
+  };
+
   return (
-    <div className="Report">
-      <div>Report page</div>
-      <button onClick={handleNavigate}>move to todo</button>
+    <div>
+      <div>Halaman Reports</div>
+      <Button onClick={updateStorage}>Submit</Button>
     </div>
   );
 };

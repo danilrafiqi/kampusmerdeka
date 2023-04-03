@@ -3,7 +3,7 @@ import "./InputTodo.molecule.style.css";
 
 const InputTodo = ({ value, onChange, onSubmit, isEdit, onUpdate }) => {
   return (
-    <div className="input-todo">
+    <div className="input-todo" id="input-todo">
       <input
         type="text"
         className="input-todo__field"

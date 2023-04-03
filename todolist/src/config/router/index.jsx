@@ -4,7 +4,9 @@ import Landing from "../../views/Landing/Landing.view";
 import Login from "../../views/Login/Login";
 import Product from "../../views/Product/Product.view";
 import ProductDetail from "../../views/ProductDetail/ProductDetail.view";
+import Report from "../../views/Report/Report.view";
 import TodoList from "../../views/TodoList/TodoList.view";
+import User from "../../views/User/User.view";
 
 const router = [
   {
@@ -34,6 +36,14 @@ const router = [
   {
     path: "/counter",
     element: <Counter />,
+  },
+  {
+    path: "/user",
+    element: <User />,
+  },
+  {
+    path: "/report",
+    element: <Report />,
   },
 ];
 

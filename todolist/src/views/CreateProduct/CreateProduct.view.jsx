@@ -5,12 +5,26 @@ import "./CreateProduct.style.css";
 
 import * as Yup from "yup";
 
+const MAX_FILE_SIZE = 1024; //100KB
+
 const schema = Yup.object().shape({
   number: Yup.number().min(2).max(50).required(),
   email: Yup.string().matches(
     /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
     "please input valid email"
   ),
+  fileUpload: Yup.mixed()
+    .required()
+    .test(
+      "size",
+      "Max allowed size is 10KB",
+      (value) => value && value.size <= MAX_FILE_SIZE
+    )
+    .test(
+      "type",
+      "error type image",
+      (value) => value && value.type === "image/png"
+    ),
 });
 
 const CreateProduct = () => {
@@ -22,6 +36,7 @@ const CreateProduct = () => {
       number: 0,
       email: "",
       password: "",
+      fileUpload: {},
     },
     validationSchema: schema,
     onSubmit: (values) => {
@@ -32,10 +47,22 @@ const CreateProduct = () => {
   const handleNavigate = useCallback(() => {
     navigate("/todo");
   }, []);
-
+  console.log("formik.values", formik.values);
+  console.log("formik.errors", formik.errors);
   return (
     <div className="create-product">
       <div>CreateProduct page</div>
+
+      <input
+        type="file"
+        name="uploadFile"
+        id=""
+        onChange={(e) => {
+          console.log("e.target.value", e.target.value);
+          console.log("e.target.files[0]", e.target.files[0]);
+          formik.setFieldValue("fileUpload", e.target.files[0]);
+        }}
+      />
       <br />
       <br />
 

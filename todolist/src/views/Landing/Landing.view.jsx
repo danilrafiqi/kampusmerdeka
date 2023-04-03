@@ -1,32 +1,17 @@
-import React, { useCallback } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import "./Landing.style.css";
+import useLandingViewModel from "./Landing.viewModel";
 
 const Landing = () => {
-  const navigate = useNavigate();
-
-  const handleNavigateTodo = useCallback(() => {
-    navigate("/todo");
-  }, []);
-
-  const handleNavigateCreateProduct = useCallback(() => {
-    navigate("/product/create");
-  }, []);
-
-  const handleNavigateProduct = useCallback(() => {
-    navigate("/product");
-  }, []);
-
-  const handleNavigateProductDetail = useCallback((id) => {
-    navigate(`/product/${id}`);
-  }, []);
+  const viewModel = useLandingViewModel();
 
   return (
     <div className="landing">
       <div>landing page</div>
-      <button onClick={handleNavigateTodo}>move to todo</button>
+      <button onClick={viewModel.handleNavigateTodo}>move to todo</button>
       <br />
-      <button onClick={handleNavigateCreateProduct}>
+      <button onClick={viewModel.handleNavigateCreateProduct}>
         move to create product
       </button>
       <br />
@@ -34,12 +19,12 @@ const Landing = () => {
       <br />
       <NavLink to="/login2">Login2</NavLink>
       <br />
-      <button onClick={handleNavigateProduct}>move to product</button>
+      <button onClick={viewModel.handleNavigateProduct}>move to product</button>
 
       <br />
       <button
         onClick={() => {
-          handleNavigateProductDetail(1);
+          viewModel.handleNavigateProductDetail(1);
         }}
       >
         move to product detail 1
@@ -48,20 +33,14 @@ const Landing = () => {
       <br />
       <button
         onClick={() => {
-          handleNavigateProductDetail(2);
+          viewModel.handleNavigateProductDetail(2);
         }}
       >
         move to product detail 2
       </button>
       <br />
 
-      <button
-        onClick={() => {
-          navigate("/dashboard");
-        }}
-      >
-        dashboard
-      </button>
+      <button onClick={viewModel.handleNavigateToDashboard}>dashboard</button>
     </div>
   );
 };

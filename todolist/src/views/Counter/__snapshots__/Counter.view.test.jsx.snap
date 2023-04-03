@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Counter > should render correctly 1`] = `
+<div>
+  <div>
+    Counter 
+    110
+     
+  </div>
+  <div>
+    <button
+      onClick={[Function]}
+    >
+      plus
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      minus
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      reset
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      update to 1000
+    </button>
+  </div>
+</div>
+`;

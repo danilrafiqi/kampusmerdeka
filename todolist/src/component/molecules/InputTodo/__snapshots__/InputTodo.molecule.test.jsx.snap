@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputTodo.molecule.jsx > should render correctly 1`] = `
+<div
+  className="input-todo"
+  id="input-todo"
+>
+  <input
+    className="input-todo__field"
+    placeholder="Input todo . . ."
+    type="text"
+  />
+  <button
+    className="input-todo__button"
+  >
+    Submit
+  </button>
+</div>
+`;
