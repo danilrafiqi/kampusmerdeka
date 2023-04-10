@@ -1,56 +1,36 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
+  "posts": [],
+  "comments": [],
   "products": [
     {
-      "id": "1",
-      "name": "laptop",
-      "price": 100000
+      "id": "ade19ea1-d996-4545-aa7b-169d6def802a",
+      "name": "sdsdsd",
+      "price": 2323,
+      "userId": 1
     },
     {
       "id": "2",
-      "name": "pc",
-      "price": 90000
+      "name": "test dua",
+      "price": 2,
+      "userId": 1
     },
     {
-      "name": "test name",
-      "price": 12323,
-      "id": "14da4d40-f9d1-4afa-a1aa-8069aba2b748"
-    },
-    {
-      "name": "dsdsd",
-      "price": 232323,
-      "id": "e3d05d89-9fe8-415e-9443-2056dffc7b02"
-    },
-    {
-      "name": "sdsdsd",
-      "price": 343434,
-      "id": "fd705c96-d2f8-4cd0-8f84-0763d12b5839"
-    },
-    {
-      "name": "halo dunia",
-      "price": 2323,
-      "id": "e5b5e0f8-50fb-4ca9-acb2-0545b90a5e5c"
-    },
-    {
-      "name": "uyuyu",
-      "price": 5656,
-      "id": "581b53fc-810d-4ac3-9b88-088003fb2607"
+      "id": "3",
+      "name": "test tiga",
+      "price": 2,
+      "userId": 2
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "users": [
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$ctQKNGCmCopjbCaatUvi2.p3vP79jpUEvdp6WALhYk8nohKULbkOa",
+      "id": 1
+    },
+    {
+      "email": "danil.rafiqi@gmail.com",
+      "password": "$2a$10$fSWPjIlxpf.s.VsR/10wDu4NW2vTc/x/oECBQW0FQl7HbUomR9qXe",
+      "id": 2
+    }
+  ]
 }

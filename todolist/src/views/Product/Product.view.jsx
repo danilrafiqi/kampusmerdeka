@@ -26,7 +26,9 @@ const Product = () => {
           onChange={viewModel.formik.handleChange}
         />
         <button type="submit" onClick={viewModel.formik.handleSubmit}>
-          submit data
+          {viewModel.formik.values.id === ""
+            ? "create product"
+            : "update product"}
         </button>
       </div>
 
@@ -37,12 +39,33 @@ const Product = () => {
             key={idx}
             style={{
               display: "flex",
-              justifyContent: "space-between",
-              width: 200,
+              justifyContent: "space-beetwen",
+              width: 500,
             }}
           >
             <div>{product.name}</div>
             <div>{product.price}</div>
+            <button
+              onClick={() => {
+                viewModel.handleEditProductById(product);
+              }}
+            >
+              edit
+            </button>
+            <button
+              onClick={() => {
+                viewModel.handleDeleteProductById(product.id);
+              }}
+            >
+              delete
+            </button>
+            <button
+              onClick={() => {
+                viewModel.handleNavigateDetail(product.id);
+              }}
+            >
+              detail
+            </button>
           </div>
         );
       })}

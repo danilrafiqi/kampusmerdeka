@@ -10,11 +10,22 @@ describe("productSlice", () => {
   it("should have correct initial state", () => {
     expect(initialState).toEqual({
       products: [],
+      productDetail: {},
       retrieveProductsLoading: false,
       retrieveProductsError: undefined,
 
       createProductLoading: false,
       createProductError: undefined,
+
+      deleteProductByIdLoading: false,
+      deleteProductByIdError: undefined,
+
+      retrieveProductByIdLoading: false,
+      retrieveProductByIdError: undefined,
+
+      updateProductByIdLoading: false,
+      updateProductByIdError: undefined,
+      type: "",
     });
   });
 });
